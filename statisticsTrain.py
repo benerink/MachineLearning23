@@ -12,3 +12,6 @@ pd.set_option('display.max_rows', None)
 
 # check all columns for missing entries without shortening the output
 print(data.isnull().sum())
+
+# print all entries in poolflaeche
+print(data['Poolflaeche'])
