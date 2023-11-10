@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a87de051-30ef-487b-9c3a-15ae6d6aeda4" name="Changes" comment="Initialize new Branch + added statisticsTrain.py">
+      <change afterPath="$PROJECT_DIR$/train_cleaned.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MachineLearning23.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MachineLearning23.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statisticsTrain.py" beforeDir="false" afterPath="$PROJECT_DIR$/statisticsTrain.py" afterDir="false" />
     </list>
@@ -23,14 +26,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Analyzation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2Xtgn14EQ1VOOjUQUpmJxd1hCJH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,14 +46,40 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "Analyzation",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/rinkb/Desktop/Info_Studium/Semester 5/Machine Learning/MachineLearning23",
+    "last_opened_file_path": "C:/Users/rinkb/Desktop/Informatikstudium/Semester 5/Machine Learning/MachineLearning23",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="statisticsTrain" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="MachineLearning23" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/statisticsTrain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,6 +89,8 @@
       <option name="presentableId" value="Default" />
       <updated>1699453953385</updated>
       <workItem from="1699453954470" duration="1965000" />
+      <workItem from="1699459528771" duration="240000" />
+      <workItem from="1699606710990" duration="1714000" />
     </task>
     <task id="LOCAL-00001" summary="Initialize new Branch + added statisticsTrain.py">
       <option name="closed" value="true" />
@@ -80,6 +111,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Initialize new Branch + added statisticsTrain.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MachineLearning23$statisticsTrain.coverage" NAME="statisticsTrain Coverage Results" MODIFIED="1699455913208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MachineLearning23$statisticsTrain.coverage" NAME="statisticsTrain Coverage Results" MODIFIED="1699608402707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
