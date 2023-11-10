@@ -25,7 +25,7 @@ for col in data.columns:
         print(col)
         data[col] = data[col].fillna('NA')
 
-# write the data to a new csv file in the same folder
+# write the data to a new csv file in the current folder
 data.to_csv('train_cleaned.csv', index=False)
 
 # check all numerical columns via loop and print the description
