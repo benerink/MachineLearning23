@@ -38,6 +38,8 @@ for col in newdata.columns:
         print(col)
         print(newdata[col].describe(include='all'))
 
+# TODO: change non numerical columns to numerical columns (Wohngebiet,...)
+
 
 
 
