@@ -7,8 +7,8 @@ from scipy.stats import randint
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RandomizedSearchCV
 
-# Read the cleaned data
-data = pd.read_csv('train_cleaned.csv')
+# Read the cleaned transformed data
+data = pd.read_excel('train_cleaned_transformed.xlsx')
 
 # Setting to display all columns
 pd.set_option('display.width', None)
