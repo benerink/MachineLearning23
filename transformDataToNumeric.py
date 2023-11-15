@@ -4,7 +4,7 @@ import pandas as pd
 # Replace 'your_excel_file.xlsx' with your actual file name
 df = pd.read_excel('train_cleaned.xlsx')
 
-# Dictionary to store mappings
+# Dictionary to store mappings in var
 original_values_mapping = {}
 
 # Iterate through columns and convert non-integer values to categorical type
