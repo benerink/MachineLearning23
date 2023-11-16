@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from RandomForest import RandomForest
+from randomForest import RandomForest
 import numpy as np
 import time
 import os
