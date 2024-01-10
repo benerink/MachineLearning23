@@ -78,13 +78,13 @@ class App(ctk.CTk):
         fig, ax = plt.subplots()
 
         # Scatter plot for actual values
-        scatter_actual = ax.scatter(X_test.iloc[:, 0], y_test, s=1000, c='black', label='Actual Prices')
+        scatter_actual = ax.scatter(X_test.iloc[:, 0], y_test, s=100, c='black', label='Actual Prices')
 
         # Scatter plot for predicted values
-        scatter_pred = ax.scatter(X_test.iloc[:, 0], y_pred, s=1000, c='blue', label='Predicted Prices')
+        scatter_pred = ax.scatter(X_test.iloc[:, 0], y_pred, s=100, c='blue', label='Predicted Prices')
 
         # Add a point for the predicted selling price for new data
-        ax.scatter(2025, predicted_price.item(), s=400, c='red', marker='X', label='Predicted Price for 2025')
+        ax.scatter(2025, predicted_price.item(), s=100, c='red', marker='X', label='Predicted Price for 2025')
 
         ax.set_xlabel('Baujahr (Year of Construction)')
         ax.set_ylabel('Verkaufspreis (Selling Price)')
