@@ -78,10 +78,10 @@ class App(ctk.CTk):
         fig, ax = plt.subplots()
 
         # Scatter plot for actual values
-        scatter_actual = ax.scatter(X_test.iloc[:, 0], y_test, s=400, c='black', label='Actual Prices')
+        scatter_actual = ax.scatter(X_test.iloc[:, 0], y_test, s=1000, c='black', label='Actual Prices')
 
         # Scatter plot for predicted values
-        scatter_pred = ax.scatter(X_test.iloc[:, 0], y_pred, s=400, c='blue', label='Predicted Prices')
+        scatter_pred = ax.scatter(X_test.iloc[:, 0], y_pred, s=1000, c='blue', label='Predicted Prices')
 
         # Add a point for the predicted selling price for new data
         ax.scatter(2025, predicted_price.item(), s=400, c='red', marker='X', label='Predicted Price for 2025')
@@ -90,13 +90,7 @@ class App(ctk.CTk):
         ax.set_ylabel('Verkaufspreis (Selling Price)')
         ax.legend()
 
-
-
-        ax.axis("off")
-        fig.subplots_adjust(left=0, right=1, bottom=0, top=1, wspace=0, hspace=0)
-
-        # Adjust the size of the figure
-        fig.set_size_inches(8, 4)  # Adjust width and height according to your preferences
+        fig.set_size_inches(15, 10)  # Adjust width and height according to your preferences
 
         # Embed the plot into the Tkinter GUI
         canvas = FigureCanvasTkAgg(fig, master=self.tabview.tab("Plot1"))
