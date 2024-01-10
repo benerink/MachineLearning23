@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from utils import get_excel_file_path
 
 # Read the data
-data = pd.read_csv('train.csv')
+data = pd.read_csv(get_excel_file_path("train.csv"))
 
 # Setting to display all columns
 pd.set_option('display.width', None)
@@ -26,10 +27,10 @@ for col in data.columns:
         data[col] = data[col].fillna('NA')
 
 # write the data to a new csv file in the current folder
-data.to_csv('train_cleaned.csv', index=False)
+data.to_csv('./resources/train_cleaned.csv', index=False)
 
 # check all numerical columns via loop and print the description
-newdata = pd.read_csv('train_cleaned.csv')
+newdata = pd.read_csv(get_excel_file_path("train_cleaned.csv"))
 for col in newdata.columns:
     if newdata[col].dtype != 'object':
         print(col)

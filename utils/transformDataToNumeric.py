@@ -1,8 +1,9 @@
 import pandas as pd
+import json
 
+from utils import get_excel_file_path
 # Assuming df is your DataFrame
-# Replace 'your_excel_file.xlsx' with your actual file name
-df = pd.read_excel('train_cleaned.xlsx')
+df = pd.read_excel(get_excel_file_path("train_cleaned.xlsx"))
 
 # Dictionary to store mappings in var
 original_values_mapping = {}
@@ -18,9 +19,7 @@ for col in df.columns:
 # Convert categorical columns to codes
 df_codes = df.apply(lambda x: x.cat.codes if isinstance(x.dtype, pd.CategoricalDtype) else x)
 
-# Save the original values mapping to a JSON file
-import json
-with open('original_values_mapping.json', 'w') as file:
+with open('../resources/original_values_mapping.json', 'w') as file:
     json.dump(original_values_mapping, file)
 
-df_codes.to_excel('train_cleaned_transformed.xlsx', index=False)
+df_codes.to_excel('../resources/train_cleaned_transformed.xlsx', index=False)
