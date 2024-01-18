@@ -7,6 +7,8 @@ from models.find_top_features import find_top_features
 from models.lineare_regression import train_and_predict
 from models.random_forest import train_and_predict_random_forest
 
+global_predicted_price = None
+
 
 class FeatureSelectionWindow(ctk.CTkToplevel):
     def __init__(self, parent, top_features, *args, **kwargs):
@@ -78,6 +80,7 @@ class App(ctk.CTk):
         super().__init__()
 
         # root
+        self.global_predicted_price = None
         self.title("Hackerthon.py")
         self.geometry(f"{1920}x{1080}")
         self.minsize(500, 300)
@@ -119,17 +122,20 @@ class App(ctk.CTk):
         self.tabview.tab("Plot1").grid_columnconfigure(0, weight=1)  # configure grid of individual tabs
         self.tabview.tab("Plot1").grid_rowconfigure(1, weight=1)
 
-        # Entry for user to input the number of top features
-        self.num_top_features_entry = ctk.CTkEntry(self.main_frame, corner_radius=8)
-        self.num_top_features_entry.grid(row=2, column=0, padx=10, pady=10, sticky='w')
-        self.num_top_features_entry_label = ctk.CTkLabel(self.main_frame, text='Number of Top Features:')
-        self.num_top_features_entry_label.grid(row=2, column=1, padx=10, pady=10, sticky='w')
-
         # Label for displaying the size of the hovered point
         self.hover_label_var = ctk.StringVar()
         self.hover_label_var.set('Größe des  Punktes:')
         self.hover_label = ctk.CTkLabel(self.main_frame, textvariable=self.hover_label_var)
         self.hover_label.grid(row=0, column=0, padx=10, pady=15, sticky='w')
+
+        # Label for displaying the predicted price
+        self.predicted_price_var = ctk.StringVar()
+        self.predicted_price_var.set('Predicted Price: ')
+        self.predicted_price_label = ctk.CTkLabel(self.main_frame, textvariable=self.predicted_price_var)
+        self.predicted_price_label.grid(row=3, column=0, padx=10, pady=10, sticky='w')
+
+        # Set up a trace to update the label when the StringVar changes
+        self.predicted_price_var.trace_add("write", self.update_predicted_price_label)
 
     def predict_model(self, model_type):
         df = utils.utils.upload_file()
@@ -145,6 +151,7 @@ class App(ctk.CTk):
                            selected_features)
 
     def plot_data(self, X_test, y_test, y_pred, predicted_price, model_type, features, selected_feature):
+        global global_predicted_price
         plt.clf()
         plotpoints = 100
         fig, ax = plt.subplots()
@@ -166,10 +173,10 @@ class App(ctk.CTk):
 
         # Add a point for the predicted selling price for new data
         if model_type == 'Linear Regression':
-            ax.scatter(2025, predicted_price.item(), s=150, c='red', marker='X',
+            ax.scatter(1025, predicted_price.item(), s=150, c='red', marker='X',
                        label='Linear Regression Predicted Price for 2025')  # Adjust the marker size (s)
         elif model_type == 'Random Forest':
-            ax.scatter(2025, predicted_price.item(), s=150, c='orange', marker='X',
+            ax.scatter(1025, predicted_price.item(), s=150, c='orange', marker='X',
                        label='Random Forest Predicted Price for 2025')  # Adjust the marker size (s)
 
         ax.set_xlabel(selected_feature)
@@ -184,12 +191,18 @@ class App(ctk.CTk):
         # Manually set the y-axis limits based on your expected range
         ax.set_ylim(0, 600000)
 
-        fig.set_size_inches(25, 20)
+        num_features = len(features)
+        fig_width = 6 * num_features  # Adjust the multiplier as needed
+        fig_height = 5 * num_features  # Adjust the multiplier as needed
+
+        fig.set_size_inches(fig_width, fig_height)
 
         # Embed the plot into the Tkinter GUI
         canvas = FigureCanvasTkAgg(fig, master=self.tabview.tab("Plot1"))
         canvas.draw()
         canvas.get_tk_widget().grid(sticky='nsew', row=1, column=0)
+        # Set the predicted price using the function
+        self.set_predicted_price(predicted_price.item())
         self.update()
 
     def find_top_features_callback(self, df):
@@ -221,3 +234,19 @@ class App(ctk.CTk):
             print("An error occurred.")
         print(selected_features)
         return selected_features
+
+    def update_predicted_price_label(self, *args):
+        # Callback function to update the label when the StringVar changes
+        price_with_euro = f'{self.predicted_price_var.get()} €'
+        self.predicted_price_label.configure(text=f'Predicted Price: {price_with_euro}')
+
+    def set_predicted_price(self, value):
+        # Function to set the predicted price
+        self.global_predicted_price = value
+        # Update the StringVar value, triggering the trace and updating the label
+        price_with_euro = f'{value} €'
+        self.predicted_price_var.set(f'Predicted Price: {price_with_euro}')
+
+    def get_predicted_price(self):
+        # Function to retrieve the predicted price
+        return self.global_predicted_price
